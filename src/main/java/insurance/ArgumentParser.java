@@ -1,3 +1,5 @@
+package insurance;
+
 /**
  * Parses and validates command line arguments.
  *
@@ -15,7 +17,7 @@ public class ArgumentParser {
   private String csvFilePath;
 
   /**
-   * Creates an ArgumentParser and parses the given args.
+   * Creates an insurance.ArgumentParser and parses the given args.
    * If args are invalid, prints an error message and exits.
    *
    * @param args command line arguments
