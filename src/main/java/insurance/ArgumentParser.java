@@ -1,3 +1,5 @@
+package insurance;
+
 /**
  * Parses and validates command line arguments.
  *
