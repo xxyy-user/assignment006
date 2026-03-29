@@ -11,11 +11,7 @@ import java.util.Map;
 public class TemplateProcessor {
   private final String templateContent;
   public TemplateProcessor(String templatePath) throws IOException {
-    this.templateContent = new String(Files.readAllBytes(Paths.get(templatePath)));
-  }
-
-  public TemplateProcessor(String templateContent, boolean hasContent) {
-    this.templateContent = templateContent;
+    this.templateContent = new String(Files.readAllBytes(new java.io.File(templatePath).toPath()));
   }
 
   /**
@@ -33,8 +29,8 @@ public class TemplateProcessor {
       String key = sb.substring(start + 2, end);
       String value = map.getOrDefault(key, "[[ " + key + " ]]");
       sb.replace(start, end + 2, value);
-      // start from next one "[["
-      start = sb.indexOf("[[");
+      // start from after the replaced value to avoid re-scanning it
+      start = sb.indexOf("[[", start + value.length());
     }
     return sb.toString();
   }

@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Parses a CSV file into a list of maps, where each map represents one row
+ * with column headers as keys and cell values as values.
+ */
 public class CSVParser {
   private final String filePath;
 
