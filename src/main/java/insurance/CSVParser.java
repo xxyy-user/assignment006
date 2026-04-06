@@ -31,6 +31,7 @@ public class CSVParser {
       String headerLine = reader.readLine();
       if (headerLine == null) return list;
       List<String> headers = splitCSVLine(headerLine);
+      headers.replaceAll(String::trim);
 
       // 2. read information of each line
       String line;
