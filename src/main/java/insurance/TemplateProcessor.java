@@ -11,7 +11,7 @@ import java.util.Map;
 public class TemplateProcessor {
   private final String templateContent;
   public TemplateProcessor(String templatePath) throws IOException {
-    this.templateContent = new String(Files.readAllBytes(new java.io.File(templatePath).toPath()));
+    this.templateContent = Files.readString(Paths.get(templatePath));
   }
 
   /**
