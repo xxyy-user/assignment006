@@ -3,8 +3,6 @@ package insurance;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;

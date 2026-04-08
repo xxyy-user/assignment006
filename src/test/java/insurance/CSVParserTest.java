@@ -18,7 +18,7 @@ class CSVParserTest {
   void testParseRealCSV() throws IOException {
     List<Map<String, String>> result = new CSVParser(resourcePath("sample.csv")).parseCSV();
     assertEquals(3, result.size());
-    assertEquals("Jack", result.get(0).get("first_name"));
+    assertEquals("\"Jack\"", result.get(0).get("first_name"));
     assertEquals("Chen", result.get(0).get("last_name"));
     assertEquals("jack@example.com", result.get(0).get("email"));
   }
@@ -60,9 +60,9 @@ class CSVParserTest {
   }
 
   @Test
-  void testSplitCSVLineWithComma() {
+  void testSplitCSVLineWithCommaAndQuotes() {
     CSVParser parser = new CSVParser("");
-    List<String> fields = parser.splitCSVLine("\"Art\",\"Chemel, James L Cpa\"");
-    assertEquals(List.of("Art", "Chemel, James L Cpa"), fields);
+    List<String> fields = parser.splitCSVLine("\"\"\"Art\"\"\",\"Chemel, James L Cpa\"");
+    assertEquals(List.of("\"Art\"", "Chemel, James L Cpa"), fields);
   }
 }
